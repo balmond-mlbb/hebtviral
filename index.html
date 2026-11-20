@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chord Gitar & Beat Drum - Kangen (Dewa 19)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎸 Dewa 19 - Kangen</h1>
+            <p class="subtitle">Interactive Guitar Chords & Web Audio Drum Machine</p>
+        </header>
+
+        <!-- Panel Kontrol Drum & Tempo -->
+        <section class="control-panel">
+            <div class="drum-controls">
+                <button id="playDrumBtn" class="btn primary">▶ Mainkan Beat Drum</button>
+                <button id="stopDrumBtn" class="btn danger" disabled>⏹ Stop</button>
+            </div>
+
+            <div class="tempo-control">
+                <label for="bpmSlider">Tempo: <span id="bpmValue">76</span> BPM</label>
+                <input type="range" id="bpmSlider" min="50" max="120" value="76">
+            </div>
+
+            <div class="beat-visualizer">
+                <span class="beat-dot" data-beat="0">1</span>
+                <span class="beat-dot" data-beat="1">&</span>
+                <span class="beat-dot" data-beat="2">2</span>
+                <span class="beat-dot" data-beat="3">&</span>
+                <span class="beat-dot" data-beat="4">3</span>
+                <span class="beat-dot" data-beat="5">&</span>
+                <span class="beat-dot" data-beat="6">4</span>
+                <span class="beat-dot" data-beat="7">&</span>
+            </div>
+
+            <div class="scroll-controls">
+                <button id="autoScrollBtn" class="btn secondary">⬇ Auto Scroll: OFF</button>
+            </div>
+        </section>
+
+        <!-- Panel Kunci Gitar Interaktif (Klik untuk dengar bunyi) -->
+        <section class="chord-library">
+            <h3>Klik Kunci untuk Mendengar Suara Gitar:</h3>
+            <div class="chord-cards" id="chordCardsContainer">
+                <!-- Diisi otomatis oleh JavaScript -->
+            </div>
+        </section>
+
+        <!-- Lirik dan Chord Lagu -->
+        <main class="song-sheet" id="songSheet">
+            <div class="song-info">
+                <span><strong>Nada Dasar:</strong> D Mayor</span> | 
+                <span><strong>Birama:</strong> 4/4 (Pop Ballad)</span>
+            </div>
+
+            <div class="verse">
+                <h4>[Intro]</h4>
+                <p class="chord-line"><span class="chord">D</span>       <span class="chord">Bm</span>       <span class="chord">G</span>       <span class="chord">A</span> (2x)</p>
+            </div>
+
+            <div class="verse">
+                <h4>[Verse 1]</h4>
+                <pre>
+<span class="chord">D</span>               <span class="chord">Bm</span>
+Kutrima suratmu tlah kubaca
+      <span class="chord">G</span>                <span class="chord">A</span>
+Dan aku mengerti
+<span class="chord">D</span>                 <span class="chord">Bm</span>
+Betapa merindunya dirimu
+      <span class="chord">G</span>                <span class="chord">A</span>
+Akan hadirnya diriku
+
+<span class="chord">Em</span>               <span class="chord">A</span>
+Di dalam hari-harimu
+<span class="chord">Em</span>               <span class="chord">A</span>
+Bersama lagi
+                </pre>
+            </div>
+
+            <div class="verse">
+                <h4>[Verse 2]</h4>
+                <pre>
+<span class="chord">D</span>               <span class="chord">Bm</span>
+Kau bertanya padaku kapan aku
+      <span class="chord">G</span>                <span class="chord">A</span>
+Akan kembali lagi
+<span class="chord">D</span>                 <span class="chord">Bm</span>
+Katamu kau tak kuasa menahan
+      <span class="chord">G</span>                <span class="chord">A</span>
+Gejolak di dalam dada
+
+<span class="chord">Em</span>               <span class="chord">A</span>
+Yang membara menahan rasa
+<span class="chord">Em</span>               <span class="chord">A</span>
+Pertemuan nanti
+<span class="chord">G</span>                <span class="chord">A</span>
+Saat bersama dirimu
+                </pre>
+            </div>
+
+            <div class="verse chorus">
+                <h4>[Chorus / Reff]</h4>
+                <pre>
+<span class="chord">D</span>                  <span class="chord">F#m</span>
+Semua kata rindumu semakin membuatku
+<span class="chord">Bm</span>                 <span class="chord">A</span>
+Tak berdaya menahan rasa ingin jumpa
+<span class="chord">G</span>                  <span class="chord">D</span>
+Percayalah padaku akupun rindu kamu
+<span class="chord">Em</span>                 <span class="chord">A</span>
+Ku akan pulang melepas semua kerinduan
+         <span class="chord">D</span>
+Yang terpendam...
+                </pre>
+            </div>
+
+            <div class="verse">
+                <h4>[Verse 3]</h4>
+                <pre>
+<span class="chord">D</span>               <span class="chord">Bm</span>
+Kau tuliskan padaku kata cinta
+      <span class="chord">G</span>                <span class="chord">A</span>
+Yang manis dalam suratmu
+<span class="chord">D</span>                 <span class="chord">Bm</span>
+Kau katakan padaku saat ini
+      <span class="chord">G</span>                <span class="chord">A</span>
+Kuingin hangat pelukmu
+
+<span class="chord">Em</span>               <span class="chord">A</span>
+Dan belai lembut kasihmu
+<span class="chord">Em</span>               <span class="chord">A</span>
+Takkan kulupa slamanya
+<span class="chord">G</span>                <span class="chord">A</span>
+Saat bersama dirimu
+                </pre>
+            </div>
+
+            <div class="verse chorus">
+                <h4>[Chorus / Reff]</h4>
+                <pre>
+<span class="chord">D</span>                  <span class="chord">F#m</span>
+Semua kata rindumu semakin membuatku
+<span class="chord">Bm</span>                 <span class="chord">A</span>
+Tak berdaya menahan rasa ingin jumpa
+<span class="chord">G</span>                  <span class="chord">D</span>
+Percayalah padaku akupun rindu kamu
+<span class="chord">Em</span>                 <span class="chord">A</span>
+Ku akan pulang melepas semua kerinduan
+         <span class="chord">D</span>
+Yang terpendam...
+                </pre>
+            </div>
+
+            <div class="verse bridge">
+                <h4>[Bridge]</h4>
+                <pre>
+<span class="chord">Bm</span>              <span class="chord">F#m</span>
+Jangan katakan cinta
+<span class="chord">G</span>               <span class="chord">D</span>       <span class="chord">A</span>
+Menambah beban rasa
+<span class="chord">Bm</span>              <span class="chord">F#m</span>
+Sudah simpan saja sedihmu itu
+<span class="chord">G</span>               <span class="chord">A</span>
+Ku akan datang...
+                </pre>
+            </div>
+
+            <div class="verse">
+                <h4>[Outro]</h4>
+                <p class="chord-line"><span class="chord">D</span>       <span class="chord">Bm</span>       <span class="chord">G</span>       <span class="chord">A</span>       <span class="chord">D</span></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="java.script"></script>
+</body>
+</html>
